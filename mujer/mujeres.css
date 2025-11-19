@@ -13,6 +13,49 @@ body {
   padding: 20px;
 }
 
+/* HEADER */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Para móviles */
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f4a261;
+}
+
 /* Filtros */
 .filters {
   background-color: #fff;
@@ -54,6 +97,11 @@ body {
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform .2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
 .product-card img {
@@ -86,45 +134,62 @@ body {
 .btn-buy:hover {
   background-color: #1a57c2;
 }
-header {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
+
+/* ===========================
+   MEDIA QUERIES RESPONSIVAS
+=========================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+  .navbar {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .filters {
+    padding: 15px;
+  }
 }
 
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Celulares grandes */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .products {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters {
+    margin-bottom: 15px;
+  }
 }
 
-.navbar .logo a {
-  color: #fff;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
+/* Celulares pequeños */
+@media (max-width: 480px) {
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
 
-nav ul li {
-  margin: 0 15px;
-}
+  .products {
+    grid-template-columns: 1fr;
+  }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
+  .product-card {
+    padding: 10px;
+  }
 
-nav ul li a:hover {
-  color: #f4a261;
+  .filters {
+    padding: 15px;
+  }
 }

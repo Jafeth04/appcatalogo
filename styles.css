@@ -24,6 +24,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    flex-wrap: wrap; /* Permite que el menú baje en móviles */
 }
 
 .navbar .logo a {
@@ -36,10 +37,8 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -59,7 +58,7 @@ nav ul li a:hover {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 100px 0;
+    padding: 100px 20px;
 }
 
 .hero-text h1 {
@@ -85,7 +84,7 @@ nav ul li a:hover {
     background-color: #e67e22;
 }
 
-/* Sección de productos destacados */
+/* Productos */
 .productos-destacados {
     padding: 40px 20px;
     text-align: center;
@@ -97,9 +96,8 @@ nav ul li a:hover {
 }
 
 .product-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
@@ -108,7 +106,6 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
     text-align: center;
 }
 
@@ -151,9 +148,73 @@ footer {
 
 footer .footer-content p {
     font-size: 1em;
-} 
+}
 
-h1{
+/* Estilo general de títulos */
+h1 {
     color:#333;
     font-size:40px;
-    text-align:center;}
+    text-align:center;
+}
+
+/* ===========================
+   MEDIA QUERIES RESPONSIVE
+=========================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+    .hero-text p {
+        font-size: 1.1em;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .product-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .navbar {
+        text-align: center;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.7em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .product-cards {
+        grid-template-columns: 1fr;
+    }
+}
